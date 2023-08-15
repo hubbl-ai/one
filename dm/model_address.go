@@ -1,9 +1,11 @@
 package dm
 
+// NB: AddressCode and AddressCodeType are lists in the ontology
+
 type Address struct {
 	Country         *Country `json:"iata:address:country,omitempty"`
 	AddressCode     []string `json:"iata:address:addressCode,omitempty"`     // Address identifier using special coding systems e.g. US CBP FIRMS code
-	AddressCodeType string   `json:"iata:address:addressCodeType,omitempty"` // Type of address code e.g. US CBP FIRMS
+	AddressCodeType []string `json:"iata:address:addressCodeType,omitempty"` // Type of address code e.g. US CBP FIRMS
 	CityCode        string   `json:"iata:address:cityCode,omitempty"`        // UN/LOCODE city code (5 letter) or IATA city code (3 letter)
 	CityName        string   `json:"iata:address:cityName,omitempty"`        // If no CityCode provided, full name of the city
 	POBox           string   `json:"iata:address:poBox,omitempty"`           // Post Office box number / code
